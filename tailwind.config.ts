@@ -61,7 +61,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'health-green': 'hsl(var(--health-green))',
+			},
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-accent': 'var(--gradient-accent)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
