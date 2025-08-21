@@ -1,10 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
-import { Heart, Shield, Star, MapPin } from "lucide-react";
+import { Heart, Shield, Star, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+import heroImage1 from "@/assets/hero-image-1.jpg";
+import heroImage2 from "@/assets/hero-image-2.jpg";
 
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const heroImages = [heroImage1, heroImage2];
+
+  useEffect(() => {
+    // Auto-slide carousel every 5 seconds
+    const slideInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+
+    return () => clearInterval(slideInterval);
+  }, [heroImages.length]);
+
   useEffect(() => {
     // Hero animations
     const tl = gsap.timeline();
@@ -39,7 +53,21 @@ const Home = () => {
         }
       }
     );
-  }, []);
+
+    // Carousel slide animation
+    gsap.fromTo(".carousel-image", 
+      { scale: 1.1, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.5, ease: "power2.out" }
+    );
+  }, [currentSlide]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
 
   const features = [
     {
@@ -61,27 +89,82 @@ const Home = () => {
 
   return (
     <div className="min-h-screen font-poppins">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+      {/* Hero Section with Carousel */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Carousel Background */}
+        <div className="absolute inset-0">
+          <div className="relative w-full h-full">
+            {heroImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <img
+                  src={image}
+                  alt={`Hero ${index + 1}`}
+                  className="carousel-image w-full h-full object-cover"
+                />
+                {/* Black overlay */}
+                <div className="absolute inset-0 bg-black/60"></div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Carousel Navigation */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all hover:scale-110"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-6 h-6 text-white" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all hover:scale-110"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-6 h-6 text-white" />
+          </button>
+          
+          {/* Slide indicators */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentSlide 
+                    ? 'bg-white scale-125' 
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="container mx-auto px-4 py-32 text-center relative z-10">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden z-10">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 py-32 text-center relative z-30">
           <div className="max-w-4xl mx-auto">
             <h1 className="hero-title text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent drop-shadow-lg">
                 Nurture Health
               </span>
               <br />
-              <span className="text-foreground text-4xl md:text-5xl">
+              <span className="text-white text-4xl md:text-5xl drop-shadow-lg">
                 Orthopaedics Specialist
               </span>
             </h1>
             
-            <p className="hero-subtitle text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="hero-subtitle text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md">
               Expert bone and joint care with compassionate treatment. 
               Your path to recovery starts here.
             </p>
@@ -89,7 +172,7 @@ const Home = () => {
             <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
                 size="lg" 
-                className="bg-gradient-primary hover:opacity-90 transition-all hover:scale-105 text-lg px-8 py-6"
+                className="bg-gradient-primary hover:opacity-90 transition-all hover:scale-105 text-lg px-8 py-6 shadow-xl"
                 asChild
               >
                 <Link to="/contact">Book Appointment</Link>
@@ -98,7 +181,7 @@ const Home = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-primary text-primary hover:bg-primary hover:text-white transition-all hover:scale-105 text-lg px-8 py-6"
+                className="border-white/80 text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-primary transition-all hover:scale-105 text-lg px-8 py-6 shadow-xl"
                 asChild
               >
                 <a 

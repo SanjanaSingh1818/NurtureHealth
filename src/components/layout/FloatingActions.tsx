@@ -50,7 +50,7 @@ const FloatingActions = () => {
           <Button
             key={index}
             size="icon"
-            className={`floating-btn w-14 h-14 rounded-full shadow-lg ${action.bgColor} transition-all hover:scale-110`}
+            className={`floating-btn w-14 h-14 rounded-full shadow-lg ${action.bgColor} bg-opacity-80 backdrop-blur-sm transition-all hover:scale-110 hover:bg-opacity-100`}
             asChild
           >
             <a
