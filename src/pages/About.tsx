@@ -81,8 +81,8 @@ const About = () => {
     },
     {
       icon: Clock,
-      number: "24/7",
-      label: "Emergency Care",
+      number: "50+",
+      label: "Advanced Treatments",   // ✅ Replaced "Emergency Care"
       color: "text-accent"
     },
     {
@@ -92,6 +92,7 @@ const About = () => {
       color: "text-health-green"
     }
   ];
+
 
   return (
     <div className="min-h-screen font-poppins pt-20">

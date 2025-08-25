@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { MessageCircle, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { gsap } from "gsap";
+import { FaWhatsapp } from "react-icons/fa";
+
 
 const FloatingActions = () => {
   useEffect(() => {
@@ -22,21 +24,21 @@ const FloatingActions = () => {
   }, []);
 
   const actions = [
-    {
-      icon: MessageCircle,
-      href: "https://wa.me/1234567890",
-      bgColor: "bg-green-500 hover:bg-green-600",
-      label: "WhatsApp"
-    },
+ {
+  icon: FaWhatsapp,
+  href: "https://wa.me/918506000750",
+  bgColor: "bg-green-500 hover:bg-green-600",
+  label: "WhatsApp"
+},
     {
       icon: Phone,
-      href: "tel:+1234567890",
+      href: "tel:+918506000750",
       bgColor: "bg-primary hover:bg-primary/90",
       label: "Call"
     },
     {
       icon: Mail,
-      href: "mailto:info@nurturehealth.com",
+      href: "mailto:we.nurturehealth@gmail.com",
       bgColor: "bg-secondary hover:bg-secondary/90",
       label: "Email"
     }
@@ -50,7 +52,7 @@ const FloatingActions = () => {
           <Button
             key={index}
             size="icon"
-            className={`floating-btn w-14 h-14 rounded-full shadow-lg ${action.bgColor} bg-opacity-80 backdrop-blur-sm transition-all hover:scale-110 hover:bg-opacity-100`}
+            className={`floating-btn w-12 h-12 rounded-full shadow-lg ${action.bgColor} bg-opacity-80 backdrop-blur-sm transition-all hover:scale-110 hover:bg-opacity-100`}
             asChild
           >
             <a
@@ -59,7 +61,7 @@ const FloatingActions = () => {
               rel="noopener noreferrer"
               aria-label={action.label}
             >
-              <Icon className="w-6 h-6 text-white" />
+              <Icon className="w-7 h-7 text-white" />
             </a>
           </Button>
         );

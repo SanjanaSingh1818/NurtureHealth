@@ -82,7 +82,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Our Clinic",
-      details: ["Professional Medical Center", "123 Health Street, Medical District"],
+      details: [" Mahagun Mart, MAHAGUN MODERNE, apartment, Sector 78, Noida, Uttar Pradesh 201301"],
       action: {
         text: "Get Directions",
         href: "https://share.google/oXaGK00jvKaXtdV4F"
@@ -91,25 +91,25 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+1 (555) 123-4567", "Emergency: +1 (555) 999-8888"],
+      details: ["+91-8506000750"],
       action: {
         text: "Call Now",
-        href: "tel:+15551234567"
+        href: "tel:+918506000750"
       }
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@nurturehealth.com", "appointments@nurturehealth.com"],
+      details: ["we.nurturehealth@gmail.com"],
       action: {
         text: "Send Email",
-        href: "mailto:info@nurturehealth.com"
+        href: "mailto:we.nurturehealth@gmail.com"
       }
     },
     {
       icon: Clock,
-      title: "Office Hours",
-      details: ["Mon - Fri: 8:00 AM - 6:00 PM", "Sat: 9:00 AM - 2:00 PM", "Sun: Emergency Only"],
+      title: "Clinic Hours",
+      details: ["Mon - Sat: 6:30 PM - 8:30 PM",  "Sun: Closed"],
       action: null
     }
   ];
@@ -261,7 +261,7 @@ const Contact = () => {
             <div className="bg-card p-6 rounded-3xl shadow-xl border border-border">
               <div className="w-full h-96 bg-muted rounded-2xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0361699657!2d-74.30932777004285!3d40.69753996119952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1635959017929!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.1932724649364!2d77.38510367495424!3d28.56395848719231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef76c1943541%3A0x4a999169cdeedfd2!2sNurture%20Health!5e0!3m2!1sen!2sin!4v1756103629482!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

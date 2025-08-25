@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { Heart, Shield, Star, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImage1 from "@/assets/hero-image-1.jpg";
 import heroImage2 from "@/assets/hero-image-2.jpg";
+import aboutImage from "@/assets/image.jpg";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,6 +60,18 @@ const Home = () => {
       { scale: 1.1, opacity: 0 },
       { scale: 1, opacity: 1, duration: 1.5, ease: "power2.out" }
     );
+
+    // About section animation
+    gsap.fromTo(".about-content", 
+      { x: -50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: { trigger: ".about-section", start: "top 80%" } }
+    );
+    
+    gsap.fromTo(".about-img", 
+      { x: 50, opacity: 0, scale: 0.9 },
+      { x: 0, opacity: 1, scale: 1, duration: 1, ease: "power2.out", scrollTrigger: { trigger: ".about-section", start: "top 80%" } }
+    );
+
   }, [currentSlide]);
 
   const nextSlide = () => {
@@ -194,6 +207,52 @@ const Home = () => {
                   Find Us
                 </a>
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="about-section py-20 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              About <span className="text-primary">Nurture Health</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left: Content */}
+            <div className="about-content space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                At <strong>Nurture Health</strong>, we are committed to delivering 
+                world-class orthopaedic care. Our team of specialists provides 
+                personalized treatment plans that focus on improving mobility, 
+                reducing pain, and enhancing quality of life.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                With state-of-the-art technology and a patient-first approach, 
+                we ensure that every individual receives compassionate and 
+                comprehensive care tailored to their unique needs.
+              </p>
+
+              <Button 
+                size="lg" 
+                className="bg-gradient-primary hover:opacity-90 transition-all hover:scale-105 px-8 py-6 shadow-lg"
+                asChild
+              >
+                <Link to="/about">Read More</Link>
+              </Button>
+            </div>
+
+            {/* Right: Image */}
+            <div className="about-image relative">
+              <img
+                src={aboutImage}
+                alt="About Nurture Health"
+                className="rounded-2xl shadow-xl object-cover w-full h-[400px] about-img"
+              />
             </div>
           </div>
         </div>
