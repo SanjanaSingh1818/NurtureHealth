@@ -17,18 +17,48 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Nurture Health Brand Colors */
-    --primary: 267 32% 34%; /* #4b3a78 - Nurture purple */
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 199 63% 42%; /* #2a95b0 - Health blue */
-    --secondary-foreground: 0 0% 100%;
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 4.5rem;
+  line-height: 1.2;
+  text-align: center;
+}
 
-    /* Supporting brand colors */
-    --accent: 98 25% 25%; /* #2f5229 - Nurture green */
-    --accent-foreground: 0 0% 100%;
-    
-    --health-green: 75 45% 30%; /* #4a8726 - Health green */
+/* Purple for "NUR" + "URE" */
+.nurture {
+  color: #4b3a78; /* Nurture purple */
+}
+
+/* Blue/green for "Health" */
+.he {
+  color: #239ebd; /* Health blue */
+}
+.alth {
+  color: #4a8726; /* Health green */
+}
+
+/* Special green "T" with leaf */
+.t-leaf {
+  color: #2f5229; /* Dark green */
+  position: relative;
+}
+
+/* Add a leaf shape above the T */
+.t-leaf::after {
+  content: ""; /* Replace with SVG for better design */
+  font-size: 2.5rem;
+  color: #4a8726; /* Health green */
+  position: absolute;
+  top: -1rem;
+  left: 0.2rem;
+  width: 40px;  /* size of the PNG */
+  height: 40px;
+  background-image: url("/src/assets/sign.png"); /* <-- replace with your PNG path */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;

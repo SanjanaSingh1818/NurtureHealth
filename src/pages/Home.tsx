@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { Heart, Shield, Star, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
-import heroImage1 from "@/assets/hero-image-1.jpg";
-import heroImage2 from "@/assets/hero-image-2.jpg";
+import heroImage1 from "@/assets/img5.jpg";
+import heroImage2 from "@/assets/img4.jpg";
 import aboutImage from "@/assets/image.jpg";
 
 const Home = () => {
@@ -120,7 +120,7 @@ const Home = () => {
                   className="carousel-image w-full h-full object-cover"
                 />
                 {/* Black overlay */}
-                <div className="absolute inset-0 bg-black/60"></div>
+                <div className="absolute inset-0 bg-black/30"></div>
               </div>
             ))}
           </div>
@@ -167,15 +167,16 @@ const Home = () => {
 
         <div className="container mx-auto px-4 py-32 text-center relative z-30">
           <div className="max-w-4xl mx-auto">
-            <h1 className="hero-title text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent drop-shadow-lg">
-                Nurture Health
-              </span>
-              <br />
-              <span className="text-white text-4xl md:text-5xl drop-shadow-lg">
-                Orthopaedics Specialist
-              </span>
-            </h1>
+<h1 class="logo-text">
+  <span class="nurture">NUR</span>
+  <span class="t-leaf">T</span>
+  <span class="nurture">URE</span>
+  <br />
+  <span class="he">He</span>
+  <span class="alth">alth</span>
+</h1>
+
+
             
             <p className="hero-subtitle text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md">
               Expert bone and joint care with compassionate treatment. 
