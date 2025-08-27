@@ -148,26 +148,36 @@ const About = () => {
                 Our <span className="text-primary">Story</span>
               </h2>
               
-              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
-                <p className="text-xl">
-                  At Nurture Health, we believe that every patient deserves personalized, 
-                  comprehensive orthopaedic care. Our clinic was founded with the vision of 
-                  combining cutting-edge medical technology with compassionate patient care.
-                </p>
-                
-                <p>
-                  We understand that bone and joint problems can significantly impact your 
-                  quality of life. That's why we're committed to providing not just treatment, 
-                  but a complete healing experience that addresses your physical, emotional, 
-                  and lifestyle needs.
-                </p>
-                
-                <p>
-                  Our state-of-the-art facility is equipped with the latest diagnostic and 
-                  treatment technologies, allowing us to provide accurate diagnoses and 
-                  effective treatment plans for a wide range of orthopaedic conditions.
-                </p>
-              </div>
+             <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
+  <p className="text-xl">
+    At <strong>Nurture Health</strong>, we believe that every patient deserves 
+    personalized, comprehensive orthopaedic care. Our clinic was founded with the 
+    vision of combining cutting-edge medical technology with compassionate patient care.
+  </p>
+  
+  <p>
+    We understand that bone and joint problems can significantly impact your quality 
+    of life. That's why we're committed to providing not just treatment, but a complete 
+    healing experience that addresses your physical, emotional, and lifestyle needs.
+  </p>
+  
+  <p>
+    Our state-of-the-art facility is equipped with the latest diagnostic and treatment 
+    technologies, allowing us to provide accurate diagnoses and effective treatment 
+    plans for a wide range of orthopaedic conditions.
+  </p>
+
+  <p>
+    Our team is led by <strong>Dr. Kulbhushan Kamboj</strong>, a highly skilled 
+    orthopaedic specialist known for his expertise and patient-first approach. 
+    He is also an active member of the <em>Orthopedics Community on Medisage</em>, 
+    where he contributes his knowledge and stays updated with the latest advancements 
+    in orthopaedic care. With his guidance, Nurture Health continues to set high 
+    standards in delivering compassionate and world-class treatment tailored to 
+    each patient’s unique needs.
+  </p>
+</div>
+
             </div>
           </div>
         </div>

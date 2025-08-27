@@ -47,22 +47,24 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Success animation
-      gsap.to(".form-success", {
-        scale: 1.1,
-        duration: 0.3,
-        yoyo: true,
-        repeat: 1,
-        ease: "power2.out"
-      });
+      // Create WhatsApp message
+      const messageText = `Hello, my name is ${formData.name}.
+My email is ${formData.email}.
+Here is my message: 
+${formData.message}`;
+
+      const encodedMessage = encodeURIComponent(messageText);
+
+      // WhatsApp link (India code +91)
+      const whatsappURL = `https://wa.me/918506000750?text=${encodedMessage}`;
+
+      // Redirect to WhatsApp
+      window.open(whatsappURL, "_blank");
 
       toast({
-        title: "Message Sent Successfully!",
-        description: "We'll get back to you within 24 hours.",
+        title: "Redirecting to WhatsApp...",
+        description: "You can send your message directly.",
       });
 
       // Reset form
@@ -70,7 +72,7 @@ const Contact = () => {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: "Failed to open WhatsApp. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -82,7 +84,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Our Clinic",
-      details: [" Mahagun Mart, MAHAGUN MODERNE, apartment, Sector 78, Noida, Uttar Pradesh 201301"],
+      details: ["Mahagun Mart, MAHAGUN MODERNE, apartment, Sector 78, Noida, Uttar Pradesh 201301"],
       action: {
         text: "Get Directions",
         href: "https://share.google/oXaGK00jvKaXtdV4F"
@@ -109,7 +111,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Clinic Hours",
-      details: ["Mon - Sat: 6:30 PM - 8:30 PM",  "Sun: Closed"],
+      details: ["Mon - Sat: 6:30 PM - 8:30 PM", "Sun: Closed"],
       action: null
     }
   ];
@@ -197,7 +199,7 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="form-success w-full bg-gradient-primary hover:opacity-90 transition-all hover:scale-105 text-lg py-6"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Redirecting..." : "Send via WhatsApp"}
                   </Button>
                 </form>
               </div>

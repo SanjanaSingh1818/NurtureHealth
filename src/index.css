@@ -17,6 +17,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
+/* Nurture Health Brand Colors */ --primary: 267 32% 34%; /* #4b3a78 - Nurture purple */ --primary-foreground: 0 0% 100%; --secondary: 199 63% 42%; /* #2a95b0 - Health blue */ --secondary-foreground: 0 0% 100%; /* Supporting brand colors */ --accent: 98 25% 25%; /* #2f5229 - Nurture green */ --accent-foreground: 0 0% 100%; --health-green: 75 45% 30%; /* #4a8726 - Health green */
+
 .logo-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
